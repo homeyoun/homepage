@@ -1,3 +1,11 @@
+import Nav from "@/components/Nav";
+import RollingBanner from "@/components/RollingBanner";
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <Nav />
+      <RollingBanner />
+    </main>
+  );
 }
