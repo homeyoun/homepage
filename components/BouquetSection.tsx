@@ -7,12 +7,12 @@ import thumnail4 from "../public/images/productImg/bouque2.jpg";
 
 export default function BouquetSection() {
   return (
-    <div className="max-w-6xl mx-auto mt-16">
+    <div className="max-w-6xl mx-auto mt-10">
       <h1 className="text-stone-500">꽃선물 하고 싶은데 고민일때!</h1>
       <h2 className="text-3xl font-bold text-stone-800 mt-3">
         감동과 행복을 주는 꽃선물
       </h2>
-      <section className="mt-10 mb-10">
+      <section className="mt-5 mb-5">
         <ul className="mt-3 flex gap-8">
           <li>
             <Image src={thumnail1} alt="thumnail1" />
