@@ -1,0 +1,38 @@
+export const DUMMY_FOLIAGEPLAN = [
+  {
+    id: "n1",
+    slug: "n1",
+    title: "몬스테라 + 오브제set(서울)",
+    imgSrc: "/images/productImg/025004000153.jpg",
+    date: "2021-07-01",
+    price: 77900,
+    discountPrice: 69000,
+  },
+  {
+    id: "n2",
+    slug: "n2",
+    title: "고무나무 G",
+    imgSrc: "/images/productImg/025004000226.jpg",
+    date: "2021-07-01",
+    price: 10900,
+    discountPrice: 99000,
+  },
+  {
+    id: "n3",
+    slug: "n3",
+    title: "안스리움_테이블용 A",
+    imgSrc: "/images/productImg/025004000200.jpg",
+    date: "2024-03-01",
+    price: 72900,
+    discountPrice: 61900,
+  },
+  {
+    id: "n4",
+    slug: "n4",
+    title: "여인초_테이블용 C(서울)",
+    imgSrc: "/images/productImg/025004000211.jpg",
+    date: "2024-03-01",
+    price: 74900,
+    discountPrice: 67000,
+  },
+];

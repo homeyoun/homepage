@@ -1,3 +1,3 @@
 export default function MiniNav() {
-  return <div>MiniNav</div>;
+  return <div></div>;
 }
