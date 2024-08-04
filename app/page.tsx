@@ -16,15 +16,23 @@ export default function Home() {
         products={bouqes}
       />
       <Banner
-        ImgSrc="/images/banner/banner1.png"
+        ImgSrc="/images/banner/banner2.png"
         title=" 꽃다발을 내손으로 꽃다발 강의"
-        bgColor="#D7BA9B"
+        bgColor="ivory"
         width={200}
+        fontColor="gray"
       />
       <ProductSection
         subTitle="공기정화로 좋은 공기와 축하를 한번에!"
         title="개업식이나 집들이에 좋은식물"
         products={foliage}
+      />
+      <Banner
+        ImgSrc="/images/banner/banner3.png"
+        title=" 꽃다발을 일상으로 꽃 구독하기"
+        bgColor="yellow"
+        width={200}
+        fontColor="white"
       />
     </main>
   );

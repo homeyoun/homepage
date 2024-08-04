@@ -14,8 +14,8 @@ export const DUMMY_FOLIAGEPLAN = [
     title: "고무나무 G",
     imgSrc: "/images/productImg/025004000226.jpg",
     date: "2021-07-01",
-    price: 10900,
-    discountPrice: 99000,
+    price: 99000,
+    discountPrice: 10900,
   },
   {
     id: "n3",
