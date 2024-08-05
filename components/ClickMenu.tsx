@@ -37,7 +37,6 @@ export default function ClickMenu() {
     closed: {
       transform: "translateY(-50%)",
       opacity: 0,
-      display: "none",
       transition: {
         staggerChildren: 0.07,
         staggerDirection: -1,
@@ -56,7 +55,6 @@ export default function ClickMenu() {
     closed: {
       y: 20,
       opacity: 0,
-      display: "none",
       transition: {
         y: { stiffness: 1000 },
       },
@@ -73,7 +71,6 @@ export default function ClickMenu() {
     closed: {
       y: 50,
       opacity: 0,
-      display: "none",
       transition: {
         y: { stiffness: 1000 },
       },
@@ -113,7 +110,7 @@ export default function ClickMenu() {
         initial={false}
         animate={menuClick ? "open" : "closed"}
         variants={variants}
-        className={`absolute top-12 h-[100vh] w-full space-y-5 bg-stone-50 px-12 text-xl font-bold backdrop-blur-sm sm:px-12`}
+        className={`absolute top-12 ${menuClick ? "flex-row" : "hidden"} h-[100vh] w-full space-y-5 bg-stone-50 px-12 text-xl font-bold backdrop-blur-sm sm:px-12`}
       >
         <motion.li variants={liVariants} className="mt-5">
           시즌상품
