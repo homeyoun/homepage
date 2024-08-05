@@ -1,8 +1,11 @@
 "use client";
-import { Menu } from "lucide-react";
+
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Do_Hyeon } from "next/font/google";
+import { motion } from "framer-motion";
+import { MenuToggle } from "./MenuToggle";
+import { Search, ShoppingCart } from "lucide-react";
 
 const do_h = Do_Hyeon({
   subsets: ["latin"],
@@ -13,35 +16,117 @@ const do_h = Do_Hyeon({
 export default function ClickMenu() {
   const [menuClick, setMenuClick] = useState(false);
 
-  const handleMenuClick = () => {
-    setMenuClick(!menuClick);
-    console.log(menuClick);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1023) {
+        setMenuClick(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
+  const variants = {
+    open: {
+      transform: "translateY(0%)",
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.2 },
+    },
+    closed: {
+      transform: "translateY(-50%)",
+      opacity: 0,
+      display: "none",
+      transition: {
+        staggerChildren: 0.07,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const liVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+    closed: {
+      y: 20,
+      opacity: 0,
+      display: "none",
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  };
+  const menuVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      display: "none",
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  };
+  const smLiVariants = {
+    open: { opacity: 0, display: "none" },
+    closed: { opacity: 1 },
   };
   return (
     <>
-      <ul className="flex h-12 w-full max-w-6xl items-center justify-between px-6 text-sm font-medium text-stone-800 md:hidden">
-        <Link href="/">
-          <li className={`${do_h.className} visible text-xl text-stone-800`}>
-            귀목플라워
-          </li>
-        </Link>
-        <button onClick={handleMenuClick}>
-          <Menu className="h-5 w-5" />
-        </button>
-      </ul>
-      <ul
-        className={`absolute top-12 h-[100vh] w-full space-y-4 bg-stone-50 bg-opacity-90 pl-8 text-xl font-bold backdrop-blur-sm ${menuClick ? "flex-row" : "hidden"}`}
+      <motion.ul
+        initial={false}
+        animate={menuClick ? "open" : "close"}
+        variants={menuVariants}
+        className="z-10 flex h-12 w-full items-center justify-between bg-stone-50 px-7 text-sm font-medium text-stone-800 sm:px-10 lg:hidden"
       >
-        <li className="mt-4">시즌상품</li>
-        <li>꽃다발</li>
-        <li>꽃바구니</li>
-        <li>개업화분</li>
-        <li>축하화환</li>
-        <li>근조화환</li>
-        <li>동양란</li>
-        <li>서양란</li>
-        <li>분재/숯부작</li>
-      </ul>
+        <Link href="/">
+          <motion.li
+            variants={smLiVariants}
+            className={`${do_h.className} text-xl text-stone-800`}
+          >
+            귀목플라워
+          </motion.li>
+        </Link>
+        <li className="flex space-x-8">
+          <motion.span variants={smLiVariants}>
+            <Search className="h-4 w-4" />
+          </motion.span>
+          <motion.span variants={smLiVariants}>
+            <ShoppingCart className="h-4 w-4" />
+          </motion.span>
+          <MenuToggle toggle={() => setMenuClick(!menuClick)} />
+        </li>
+      </motion.ul>
+      <motion.ul
+        initial={false}
+        animate={menuClick ? "open" : "closed"}
+        variants={variants}
+        className={`absolute top-12 h-[100vh] w-full space-y-5 bg-stone-50 px-12 text-xl font-bold backdrop-blur-sm sm:px-12`}
+      >
+        <motion.li variants={liVariants} className="mt-5">
+          시즌상품
+        </motion.li>
+        <motion.li variants={liVariants}>꽃다발</motion.li>
+        <motion.li variants={liVariants}>꽃바구니</motion.li>
+        <motion.li variants={liVariants}>개업화분</motion.li>
+        <motion.li variants={liVariants}>축하화환</motion.li>
+        <motion.li variants={liVariants}>근조화환</motion.li>
+        <motion.li variants={liVariants}>동양란</motion.li>
+        <motion.li variants={liVariants}>서양란</motion.li>
+        <motion.li variants={liVariants}>분재/숯부작</motion.li>
+      </motion.ul>
     </>
   );
 }

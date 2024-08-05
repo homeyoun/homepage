@@ -21,6 +21,13 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "global.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "hooks/useWindowDimensions.tsㅌ"
+  ],
   "exclude": ["node_modules"]
 }

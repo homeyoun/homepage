@@ -11,8 +11,8 @@ const do_h = Do_Hyeon({
 
 export default function Nav() {
   return (
-    <nav className="sticky top-0 z-50 grid place-items-center bg-stone-50 bg-opacity-80 px-0 backdrop-blur-sm sm:px-8">
-      <ul className="hidden h-12 w-full max-w-6xl items-center justify-between text-sm font-medium text-stone-800 md:flex">
+    <nav className="sticky top-0 z-50 grid place-items-center bg-stone-50 bg-opacity-80 px-0 backdrop-blur-sm lg:px-10">
+      <ul className="hidden h-12 w-full max-w-6xl items-center justify-between text-sm font-medium text-stone-800 lg:flex">
         <Link href="/">
           <li
             className={`${do_h.className} visible mr-5 text-xl text-stone-800`}
