@@ -8,7 +8,7 @@ export default function Home() {
   const bouqes = DUMMY_BOUQE;
   const foliage = DUMMY_FOLIAGEPLAN;
   return (
-    <main>
+    <main className="select-none">
       <RollingBanner />
       <ProductSection
         subTitle="꽃선물 하고 싶은데 고민일때!"

@@ -110,7 +110,7 @@ export default function ClickMenu() {
         initial={false}
         animate={menuClick ? "open" : "closed"}
         variants={variants}
-        className={`absolute top-12 ${menuClick ? "flex-row" : "hidden"} h-[100vh] w-full space-y-5 bg-stone-50 px-12 text-xl font-bold backdrop-blur-sm sm:px-12`}
+        className={`absolute top-12 select-none ${menuClick ? "flex-row" : "hidden"} h-[100vh] w-full space-y-5 bg-stone-50 px-12 text-xl font-bold backdrop-blur-sm sm:px-12`}
       >
         <motion.li variants={liVariants} className="mt-5">
           시즌상품
