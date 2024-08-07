@@ -17,7 +17,8 @@ export default function Home() {
       />
       <Banner
         ImgSrc="/images/banner/banner2.png"
-        title=" 꽃다발을 내손으로 꽃다발 강의"
+        title=" 꽃다발을 내손으로 꽃다발 강의수강"
+        subTitle="수준높은 강의를 손쉽게 만나보세요"
         bgColor="ivory"
         width={200}
         fontColor="gray"
@@ -30,9 +31,10 @@ export default function Home() {
       <Banner
         ImgSrc="/images/banner/banner3.png"
         title=" 꽃다발을 일상으로 꽃 구독하기"
-        bgColor="yellow"
+        subTitle="집에서 직접 싱싱한 꽃을 만나보세요"
+        bgColor="green"
         width={200}
-        fontColor="white"
+        fontColor="gray"
       />
     </main>
   );

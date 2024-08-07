@@ -4,8 +4,14 @@ import Banner1 from "../public/images/RollingBanner/banner2.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function RollingBanner() {
   return (
-    <div className="relative">
-      <Image src={Banner1} alt="Banner" className="mx-auto" priority />
+    <div className="relative grid">
+      <Image
+        src={Banner1}
+        alt="Banner"
+        className="mx-auto"
+        width={1920}
+        priority
+      />
       <div className="absolute inset-0 grid grid-rows-1 items-center lg:grid-cols-4">
         <section className="ml-16 hidden lg:block">
           <button className="h-12 w-12 rounded-full bg-stone-50 text-stone-700 opacity-40">

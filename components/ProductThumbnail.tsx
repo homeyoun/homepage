@@ -14,15 +14,17 @@ export default function ProductThumbnail({
   discountPrice: number;
 }) {
   return (
-    <div>
-      <Image
-        className="rounded-lg border border-stone-200"
-        src={imgSrc}
-        alt="thumnail1"
-        width={1000}
-        height={1400}
-        priority
-      />
+    <div className="grid justify-center">
+      <div className="">
+        <Image
+          className="rounded-lg border border-stone-200"
+          src={imgSrc}
+          alt="thumnail1"
+          width={430}
+          height={100}
+          priority
+        />
+      </div>
       <p className="mt-3 text-sm lg:text-base">{title}</p>
       <p className="mt-3 grid font-bold lg:inline">
         <span className="mr-2 text-xs text-red-600">
@@ -31,7 +33,7 @@ export default function ProductThumbnail({
         <span className="mt-1 lg:mt-0">
           {discountPrice.toLocaleString("ko-KR")}원
         </span>
-        <span className="ml-0 mt-1 text-xs text-stone-400 line-through lg:ml-2">
+        <span className="mb-2 ml-0 mt-1 text-xs text-stone-400 line-through lg:ml-2">
           {price.toLocaleString("ko-KR")}원
         </span>
       </p>

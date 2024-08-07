@@ -8,32 +8,33 @@ export default function Banner({
   ImgSrc,
   width,
   fontColor,
+  subTitle,
 }: {
   bgColor: string;
   fontColor: string;
   title: string;
   ImgSrc: string;
   width: number;
+  subTitle: string;
 }) {
   type colorType = Record<string, string>;
   type fontColorType = Record<string, string>;
   const bgColorType: colorType = {
-    green: "bg-[#EDEFE2]",
+    green: "bg-[#d4ddd1]",
     ivory: "bg-[#F8f0DF]",
-    yellow: "bg-gradient-to-r from-[#f3b800] from-20% to-[#f2c600] to-30%",
   };
   const fontColorType: fontColorType = {
     white: "text-stone-100",
-    gray: "text-stone-600",
+    gray: "text-stone-800",
   };
   return (
     <div className="mx-3 my-20">
       <div
-        className={`mx-auto grid max-w-6xl grid-cols-2 ${bgColorType[bgColor]} items-center rounded-lg`}
+        className={`mx-auto grid max-w-6xl justify-center rounded-lg md:flex ${bgColorType[bgColor]} `}
       >
-        <section className="">
+        <section className="mb-3 mt-2 justify-self-center md:mb-0">
           <Image
-            className="ml-0 rounded-md md:ml-10 lg:ml-32"
+            className="rounded-md"
             src={ImgSrc}
             alt="banner"
             width={width}
@@ -41,19 +42,20 @@ export default function Banner({
           />
         </section>
         <section className={`${fontColorType[fontColor]}`}>
-          <p className="flex-row items-center md:flex">
-            <span className="text-base font-bold sm:text-lg lg:text-xl">
+          <div className="mb-6 ml-0 grid md:my-5 md:ml-16">
+            <div className="justify-self-center text-2xl font-bold">
               {title}
-            </span>
+            </div>
+            <div className="mt-1 justify-self-center text-sm">{subTitle}</div>
             <button
-              className={`flex items-center rounded-xl border md:ml-5 md:mt-2 ${fontColor === "white" ? "border-stone-50 font-bold" : "border-stone-500"} px-2 lg:mt-0 lg:px-2 lg:py-1`}
+              className={`mt-3 flex w-28 items-center justify-center justify-self-center rounded-2xl bg-stone-700 text-stone-50`}
             >
-              <span className="text-xs lg:ml-1">더 알아보기</span>
-              <span>
+              <div className="px-2 py-1.5 text-xs">더 알아보기</div>
+              <div>
                 <ChevronRight className="w-3 lg:w-4" />
-              </span>
+              </div>
             </button>
-          </p>
+          </div>
         </section>
       </div>
     </div>

@@ -45,8 +45,8 @@ export default function SignInPage() {
             <p className="mt-5 text-center text-base text-stone-500">
               비회원 주문조회
             </p>
-            <p className="mt-10 text-center text-base text-stone-700">
-              sns 계정 로그인/회원가입
+            <p className="mt-10 text-center text-sm text-stone-700">
+              SNS 계정 로그인/회원가입
             </p>
             <ul className="mt-4 flex justify-center gap-4">
               <li className="rounded-lg bg-green-600 px-2 text-lg font-black text-gray-50">
