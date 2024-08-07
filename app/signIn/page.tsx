@@ -1,5 +1,6 @@
 import Bubble from "@/svg/speechBubble.svg";
 import Apple from "@/svg/appleLogo.svg";
+import Link from "next/link";
 
 export default function SignInPage() {
   return (
@@ -27,15 +28,19 @@ export default function SignInPage() {
           </div>
         </div>
         <section className="mt-4 grid text-sm">
-          <button className="rounded-md bg-stone-900 py-4 text-stone-50">
-            로그인
-          </button>
-          <button className="mt-4 rounded-md bg-[#fee500] py-4 text-stone-900">
-            <p className="flex items-center justify-center">
-              <Bubble />
-              <p className="ml-1">카카오로 로그인하기</p>
-            </p>
-          </button>
+          <Link href="" className="grid">
+            <button className="rounded-md bg-stone-900 py-4 text-stone-50">
+              로그인
+            </button>
+          </Link>
+          <Link href="" className="grid">
+            <button className="mt-4 rounded-md bg-[#fee500] py-4 text-stone-900">
+              <div className="flex items-center justify-center">
+                <Bubble />
+                <p className="ml-1">카카오로 로그인하기</p>
+              </div>
+            </button>
+          </Link>
           <section className="mb-10 grid items-center">
             <p className="mt-5 text-center text-base text-stone-500">
               비회원 주문조회
@@ -55,10 +60,12 @@ export default function SignInPage() {
               </li>
             </ul>
           </section>
-          <section className="grid">
-            <button className="border border-stone-200 py-4 text-stone-900">
-              이메일로 신규회원가입
-            </button>
+          <section>
+            <Link href="/siginUp" className="grid">
+              <button className="border border-stone-200 py-4 text-stone-900">
+                이메일로 신규회원가입
+              </button>
+            </Link>
           </section>
         </section>
       </form>
