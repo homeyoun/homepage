@@ -1,4 +1,4 @@
-import { Search, ShoppingCart } from "lucide-react";
+import { Search, ShoppingCart, UserRound } from "lucide-react";
 import { Do_Hyeon } from "next/font/google";
 import Link from "next/link";
 import ClickMenu from "./ClickMenu";
@@ -50,6 +50,12 @@ export default function Nav() {
         <li>
           <Search className="h-4 w-4" />
         </li>
+        <li>
+          <Link href="/signIn">
+            <UserRound className="h-4 w-4" />
+          </Link>
+        </li>
+
         <li>
           <ShoppingCart className="h-4 w-4" />
         </li>
