@@ -46,7 +46,9 @@ export default function Banner({
             <div className="justify-self-center text-2xl font-bold">
               {title}
             </div>
-            <div className="mt-1 justify-self-center text-sm">{subTitle}</div>
+            <div className="mt-1 justify-self-center text-sm text-stone-500">
+              {subTitle}
+            </div>
             <button
               className={`mt-3 flex w-28 items-center justify-center justify-self-center rounded-2xl bg-stone-700 text-stone-50`}
             >
