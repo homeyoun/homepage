@@ -30,19 +30,19 @@ export default function Banner({
   return (
     <div className="mx-3 my-20">
       <div
-        className={`mx-auto grid max-w-6xl justify-center rounded-lg md:flex ${bgColorType[bgColor]} `}
+        className={`mx-auto grid max-w-6xl justify-center rounded-lg md:flex ${bgColorType[bgColor]} items-center`}
       >
-        <section className="mb-3 mt-2 justify-self-center md:mb-0">
+        <section className="mb-3 justify-self-center md:mb-0">
           <Image
-            className="rounded-md"
+            className=""
             src={ImgSrc}
             alt="banner"
             width={width}
             height={100}
           />
         </section>
-        <section className={`${fontColorType[fontColor]}`}>
-          <div className="mb-6 ml-0 grid md:my-5 md:ml-16">
+        <section className={`${fontColorType[fontColor]} `}>
+          <div className="mb-6 ml-0 grid md:my-6 md:ml-4">
             <div className="justify-self-center text-2xl font-bold">
               {title}
             </div>
@@ -50,7 +50,7 @@ export default function Banner({
               {subTitle}
             </div>
             <button
-              className={`mt-3 flex w-28 items-center justify-center justify-self-center rounded-2xl bg-stone-700 text-stone-50`}
+              className={`mt-3 flex w-28 items-center justify-center justify-self-center rounded-2xl bg-stone-700 text-stone-200`}
             >
               <div className="px-2 py-1.5 text-xs">더 알아보기</div>
               <div>

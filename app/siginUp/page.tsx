@@ -30,11 +30,7 @@ export default function SignUpPage() {
       <h2 className="mb-5">회원가입으로 혜택을 누려보세요.</h2>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, actions) => {
-          console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
-        }}
+        onSubmit={(values, actions) => {}}
         className="grid w-96 justify-center"
       >
         {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
