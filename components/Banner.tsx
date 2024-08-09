@@ -42,7 +42,7 @@ export default function Banner({
           />
         </section>
         <section className={`${fontColorType[fontColor]} `}>
-          <div className="mb-6 ml-0 grid md:my-6 md:ml-4">
+          <div className="mb-6 ml-0 grid md:my-5 md:ml-4">
             <div className="justify-self-center text-2xl font-bold">
               {title}
             </div>
