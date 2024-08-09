@@ -1,7 +1,9 @@
 "use client";
 import { CircleAlert } from "lucide-react";
 import { Formik } from "formik";
-
+import * as Yup from "yup";
+import { REGEX } from "@/consts/regex";
+import { useState } from "react";
 interface MyFormVvalues {
   name: string;
   email: string;
@@ -15,6 +17,28 @@ interface OtherProps {
   message: string;
 }
 
+const SignupSchema = Yup.object().shape({
+  name: Yup.string()
+    .matches(REGEX.name, "한글로 입력해주세요")
+    .min(2, "이름이 너무 짧습니다.")
+    .max(5, "이름이 너무 깁니다.")
+    .required("이름은 필수 입력항목입니다."),
+  email: Yup.string()
+    .email("이메일을 잘못입력하셨습니다.")
+    .required("이메일은 필수 입력항목입니다."),
+  password: Yup.string().min(7, "비밀번호는 최소 7자 이상입니다."),
+  rePassword: Yup.string()
+    .min(7, "비밀번호는 최소 7자 이상입니다.")
+    .oneOf([Yup.ref("password")], "비밀번호가 일치해야 합니다.")
+    .required("비밀번호를 다시 입력하세요"),
+
+  birthDate: Yup.string(),
+  phoneNumber: Yup.string().matches(
+    REGEX.phoneNumber,
+    "번호는 01012345678형태로 입력해주세요",
+  ),
+});
+
 export default function SignUpPage() {
   const initialValues: MyFormVvalues = {
     name: "",
@@ -24,12 +48,14 @@ export default function SignUpPage() {
     birthDate: "",
     phoneNumber: "",
   };
+  const [focus, setFocus] = useState(false);
   return (
     <section className="mx-auto mt-10 grid max-w-6xl justify-center text-center">
       <h1 className="mb-2 text-2xl font-bold">귀목플라워 회원가입</h1>
       <h2 className="mb-5">회원가입으로 혜택을 누려보세요.</h2>
       <Formik
         initialValues={initialValues}
+        validationSchema={SignupSchema}
         onSubmit={(values, actions) => {}}
         className="grid w-96 justify-center"
       >
@@ -43,19 +69,23 @@ export default function SignUpPage() {
               className="h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
               placeholder="이름"
             />
+            <p className="my-3 flex items-center text-left text-xs text-red-600">
+              {errors.name && <CircleAlert className="mr-1 w-3" />}
+              {errors.name}
+            </p>
             <input
               type="email"
               name="email"
               onChange={handleChange}
               value={values.email}
-              className="mt-5 h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
+              className="h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
               placeholder="이메일"
             />
             <h1 className="mt-2 text-left text-xs text-stone-500">
               로그인에 사용할 이메일 입니다.
             </h1>
             <p className="my-3 flex items-center text-left text-xs text-red-600">
-              {errors.email && `${(<CircleAlert className="mr-1 w-3.5" />)}`}
+              {errors.email && <CircleAlert className="mr-1 w-3" />}
               {errors.email}
             </p>
             <hr className="" />
@@ -67,25 +97,36 @@ export default function SignUpPage() {
               className="mt-5 h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
               placeholder="비밀번호"
             />
-            <p className="my-3 text-left text-xs text-red-600"></p>
+            <p className="my-3 flex items-center text-left text-xs text-red-600">
+              {errors.password && <CircleAlert className="mr-1 w-3" />}
+              {errors.password}
+            </p>
             <input
               type="password"
-              name="password"
+              name="rePassword"
               onChange={handleChange}
               value={values.rePassword}
               className="h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
               placeholder="비밀번호 확인"
             />
-            <p className="my-3 text-left text-xs text-red-600"></p>
+            <p className="my-3 flex items-center text-left text-xs text-red-600">
+              {errors.rePassword && <CircleAlert className="mr-1 w-3" />}
+              {errors.rePassword}
+            </p>
             <hr className="mb-5" />
             <input
               type="text"
               name="birthDate"
               onChange={handleChange}
               value={values.birthDate}
+              onFocus={() => setFocus(true)}
+              onBlur={() => setFocus(false)}
               className="h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
-              placeholder="생년월일"
+              placeholder={focus ? "YYYYMMDD" : "생년월일"}
             />
+            <p className="mt-2 text-left text-xs text-stone-500">
+              19831222의 형식으로 입력해 주세요
+            </p>
             <p className="my-3 text-left text-xs text-red-600"></p>
             <input
               type="text"
@@ -95,7 +136,7 @@ export default function SignUpPage() {
               className="h-14 rounded-md border border-stone-300 px-4 text-sm outline-none"
               placeholder="휴대폰번호"
             />
-            <h1 className="mt-5 text-left text-xs text-stone-500">
+            <h1 className="mt-2 text-left text-xs text-stone-500">
               항상 사용하는 휴대폰 번호를 입력해주세요.비상시에 꼭 연락할 수
               있는 번호가 필요합니다.
             </h1>
