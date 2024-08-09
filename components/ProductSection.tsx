@@ -22,7 +22,7 @@ export default function ProductSection({
       <h1 className="text-stone-500">{subTitle}</h1>
       <h2 className="mt-2 text-2xl font-bold text-stone-700">{title}</h2>
       <section className="mb-5 mt-5">
-        <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <ul className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {products.map((product) => (
             <li key={product.id}>
               <ProductThumbnail

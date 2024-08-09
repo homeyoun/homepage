@@ -8,12 +8,12 @@ export default function SignInPage() {
       <h1 className="mb-6 text-xl font-bold">로그인</h1>
       <form action="" className="grid justify-center space-y-6">
         <input
-          className="h-12 w-96 rounded-md border px-3 outline-none"
+          className="h-12 w-96 rounded-md border px-4 text-sm outline-none"
           type="email"
           placeholder="아이디(이메일주소)"
         />
         <input
-          className="h-12 rounded-md border px-3 outline-none"
+          className="h-12 rounded-md border px-4 text-sm outline-none"
           type="password"
           placeholder="비밀번호"
         />
@@ -42,9 +42,11 @@ export default function SignInPage() {
             </button>
           </Link>
           <section className="mb-10 grid items-center">
-            <p className="mt-5 text-center text-base text-stone-500">
-              비회원 주문조회
-            </p>
+            <Link href="">
+              <p className="mt-8 text-center text-sm text-stone-500">
+                비회원 주문조회
+              </p>
+            </Link>
             <p className="mt-10 text-center text-sm text-stone-700">
               SNS 계정 로그인/회원가입
             </p>
@@ -62,7 +64,7 @@ export default function SignInPage() {
           </section>
           <section>
             <Link href="/siginUp" className="grid">
-              <button className="border border-stone-200 py-4 text-stone-900">
+              <button className="rounded-md border border-stone-200 py-4 text-stone-900">
                 이메일로 신규회원가입
               </button>
             </Link>

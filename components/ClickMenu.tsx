@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Do_Hyeon } from "next/font/google";
 import { motion } from "framer-motion";
 import { MenuToggle } from "./MenuToggle";
-import { Search, ShoppingCart } from "lucide-react";
+import { Search, ShoppingCart, UserRound } from "lucide-react";
 
 const do_h = Do_Hyeon({
   subsets: ["latin"],
@@ -99,6 +99,11 @@ export default function ClickMenu() {
         <li className="flex space-x-8">
           <motion.span variants={smLiVariants}>
             <Search className="h-4 w-4" />
+          </motion.span>
+          <motion.span variants={smLiVariants}>
+            <Link href="/signIn">
+              <UserRound className="h-4 w-4" />
+            </Link>
           </motion.span>
           <motion.span variants={smLiVariants}>
             <ShoppingCart className="h-4 w-4" />
