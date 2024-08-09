@@ -1,17 +1,8 @@
-import Image from "next/image";
 import React from "react";
-import Banner1 from "../public/images/RollingBanner/banner2.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function RollingBanner() {
   return (
     <div className="relative grid">
-      {/* <Image
-        src={Banner1}
-        alt="Banner"
-        className="mx-auto"
-        objectFit="cover"
-        priority
-      /> */}
       <div className="grid h-[60vh] grid-rows-1 items-end bg-stone-400 bg-[url('/images/RollingBanner/banner2.png')] bg-cover bg-right bg-no-repeat bg-blend-multiply transition md:items-center md:bg-white lg:grid-cols-4">
         <section className="ml-16 hidden lg:block">
           <button className="h-12 w-12 rounded-full bg-stone-50 text-stone-700">
